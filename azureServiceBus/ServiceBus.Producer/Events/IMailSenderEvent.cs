@@ -1,9 +1,10 @@
-﻿using ServiceBus.Producer.Models;
+﻿using System.Threading.Tasks;
+using ServiceBus.Producer.Models;
 
 namespace ServiceBus.Producer.Events
 {
     public interface IMailSenderEvent
     {
-        bool SendMail(Email email);
+        Task<bool> SendMail(Email email);
     }
 }

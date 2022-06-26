@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using ServiceBus.Producer.Events;
 using ServiceBus.Producer.Models;
 
@@ -16,9 +17,9 @@ namespace ServiceBus.Producer.Controllers
         }
 
         [HttpPost]
-        public IActionResult SendEmail([FromBody] Email email)
+        public async Task<IActionResult> SendEmail([FromBody] Email email)
         {
-            var result = _mailSenderEvent.SendMail(email);
+            var result = await _mailSenderEvent.SendMail(email);
             return Ok(result);
         }
     }
