@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace SerbiceBus.Producer
+namespace ServiceBus.Producer
 {
     public class Startup
     {
@@ -29,7 +29,7 @@ namespace SerbiceBus.Producer
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SerbiceBus.Producer", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ServiceBus.Producer", Version = "v1" });
             });
         }
 
@@ -40,7 +40,7 @@ namespace SerbiceBus.Producer
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SerbiceBus.Producer v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ServiceBus.Producer v1"));
             }
 
             app.UseHttpsRedirection();

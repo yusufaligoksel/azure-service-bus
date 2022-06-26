@@ -4,7 +4,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BF46B659-F50
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{57A46165-7659-4E03-933D-B7C28934E7E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerbiceBus.Producer", "SerbiceBus.Producer\SerbiceBus.Producer.csproj", "{83DB5A91-4059-4662-B97A-8EE9203431D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBus.Producer", "ServiceBus.Producer\ServiceBus.Producer.csproj", "{83DB5A91-4059-4662-B97A-8EE9203431D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBus.Consumer", "ServiceBus.Consumer\ServiceBus.Consumer.csproj", "{CD01BF1D-CDB2-4532-9FBD-13551FC92975}"
 EndProject
