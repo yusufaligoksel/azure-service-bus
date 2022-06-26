@@ -35,11 +35,10 @@ namespace ServiceBus.Producer
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ServiceBus.Producer", Version = "v1" });
             });
-
+            
             services.AddScoped<IMailSenderEvent, MailSenderEvent>();
             services.AddScoped<IServiceBusProducerManager, ServiceBusProducerManager>();
             services.Configure<ServiceBusSetting>(options => Configuration.GetSection("ServiceBus").Bind(options));
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

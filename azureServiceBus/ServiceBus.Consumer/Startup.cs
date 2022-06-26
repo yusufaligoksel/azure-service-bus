@@ -11,6 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ServiceBus.Consumer.Manager;
+using ServiceBus.Consumer.Manager.Interface;
+using ServiceBus.Consumer.MessageBroker;
+using ServiceBus.Consumer.Setting;
 
 namespace ServiceBus.Consumer
 {
@@ -22,6 +26,7 @@ namespace ServiceBus.Consumer
         }
 
         public IConfiguration Configuration { get; }
+        public static ServiceBusSetting ServiceBusConfiguration { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -31,6 +36,9 @@ namespace ServiceBus.Consumer
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ServiceBus.Consumer", Version = "v1" });
             });
+
+            services.AddScoped<ISendMailManager, SendMailManager>();
+            Configuration.GetSection("ServiceBus").Bind(ServiceBusConfiguration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +58,8 @@ namespace ServiceBus.Consumer
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            
+            MailQueueConsume.Consume(app.ApplicationServices.CreateScope().ServiceProvider);
         }
     }
 }
