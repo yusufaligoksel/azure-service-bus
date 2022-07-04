@@ -40,7 +40,7 @@ namespace ServiceBus.Consumer.MessageBroker
 
                 Console.WriteLine("\nStopping the receiver...");
                 await processor.StopProcessingAsync();
-                Console.WriteLine("Stopped receiving messages");
+                Console.WriteLine("Stopped receiving messages ");
             }
             catch (Exception e)
             {
